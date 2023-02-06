@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 import { initializeApp } from 'firebase/app';
 import firebaseConfig from "../config/config";
-
+import { Link } from "react-router-dom";
 const app = initializeApp(firebaseConfig);
 
 const Regist = () => {
@@ -37,6 +37,7 @@ const Regist = () => {
                 onChange={(e) => setPassword(e.target.value)}
             />
             <button type="submit">Sign up</button>
+            <button><Link to="/">Login</Link></button>
         </form>
     );
 };
