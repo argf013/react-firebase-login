@@ -4,6 +4,7 @@ import Login from "./pages/Login";
 import Regist from "./pages/Register";
 import Layout from "./pages/Layout";
 import NoPage from "./pages/NoPage";
+import Landing from "./pages/Landing";
 
 export default function App() {
   return (
@@ -12,6 +13,7 @@ export default function App() {
         <Route path="/" element={<Layout />}>
           <Route index element={<Login />} />
           <Route path="regist" element={<Regist />} />
+          <Route path="landing" element={<Landing />} />
           <Route path="*" element={<NoPage />} />
         </Route>
       </Routes>
