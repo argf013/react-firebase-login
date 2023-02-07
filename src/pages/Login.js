@@ -133,12 +133,12 @@ const Login = () => {
                     </button>
                     <br />
                     <button 
-                    className="btn mt-3 btn_1" 
+                    className="btn btn-outline-secondary mt-3" 
                     style={{ width: '18em' }} 
                     onClick={handleForgotPassword}>Forgot Password?</button>
 
                     <h6 className="mt-3 mx-auto">
-                        Don't have an account? <Link to="/regist">Register here</Link>
+                        Don't have an account? <br /><Link to="/regist">Register here</Link>
                     </h6>
 
                 </div>

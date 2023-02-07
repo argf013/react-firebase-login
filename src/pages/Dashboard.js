@@ -23,6 +23,7 @@ const Dashboard = () => {
         });
         return () => unsubscribe();
     }, [navigate])
+    
     const handleSignOut = () => {
         const auth = getAuth(app);
         signOut(auth)
