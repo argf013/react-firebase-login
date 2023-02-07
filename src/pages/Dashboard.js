@@ -17,7 +17,6 @@ const Dashboard = () => {
         const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
             if (!currentUser) {
                 navigate('/');
-                console.log('u must login first')
             } else {
                 setUser(currentUser);
             }
@@ -51,7 +50,7 @@ const Dashboard = () => {
             <h1 className="text-center mt-3">Welcome</h1>
             <div className="mt-4 card mx-auto text-center" style={{width: '18em'}}>
                 <div className="card-body mx-auto">
-                <p>Anda Login sebagai: {user.email}</p>
+                <p>Logged as: {user.email}</p>
             <button 
             className="mx-auto btn btn_1" 
             onClick={handleSignOut}

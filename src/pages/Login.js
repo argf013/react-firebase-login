@@ -16,20 +16,6 @@ const Login = () => {
     const [user, setUser] = useState(null);
     const navigate = useNavigate();
 
-
-    useEffect(() => {
-        const auth = getAuth(app);
-        const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
-            if (currentUser) {
-                navigate('/dashboard');
-                console.log('Cant go there man')
-            } else {
-                setUser(!currentUser);
-            }
-        });
-        return () => unsubscribe();
-    }, [navigate])
-
     const handleSubmit = (e) => {
         e.preventDefault();
         setLoading(true);
@@ -89,6 +75,17 @@ const Login = () => {
         setShowPassword(!showPassword);
     };
 
+    useEffect(() => {
+        const auth = getAuth(app);
+        const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+            if (currentUser) {
+                navigate('/dashboard');
+            } else {
+                setUser(!currentUser);
+            }
+        });
+        return () => unsubscribe();
+    }, [navigate])
 
     if (!user) {
         return <div>Loading...</div>;
