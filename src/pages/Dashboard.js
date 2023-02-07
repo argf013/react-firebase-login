@@ -3,10 +3,11 @@ import firebaseConfig from "../config/config";
 import { initializeApp } from 'firebase/app';
 import { getAuth, onAuthStateChanged, signOut } from "firebase/auth";
 import { useNavigate } from 'react-router-dom';
+import Swal from "sweetalert2";
 
 const app = initializeApp(firebaseConfig);
 
-const Landing = () => {
+const Dashboard = () => {
 
     const [user, setUser] = useState(null);
     const navigate = useNavigate();
@@ -16,7 +17,6 @@ const Landing = () => {
         const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
             if (!currentUser) {
                 navigate('/');
-                console.log('u must login first')
             } else {
                 setUser(currentUser);
             }
@@ -28,6 +28,12 @@ const Landing = () => {
         signOut(auth)
             .then(() => {
                 console.log("Sign-out successful");
+                Swal.fire({
+                    title: 'Sign-out successful',
+                    text: 'See you',
+                    icon: 'success',
+                    confirmButtonText: 'OK'
+                });
                 navigate('/');
             })
             .catch((error) => {
@@ -41,10 +47,20 @@ const Landing = () => {
 
     return (
         <>
-            <h1>Welcome</h1>
-            <button onClick={handleSignOut}>Sign Out</button>
+            <h1 className="text-center mt-3">Welcome</h1>
+            <div className="mt-4 card mx-auto text-center" style={{width: '18em'}}>
+                <div className="card-body mx-auto">
+                <p>Logged as: {user.email}</p>
+            <button 
+            className="mx-auto btn btn_1" 
+            onClick={handleSignOut}
+            >Sign Out
+            </button>
+            </div>
+            </div>
+            
         </>
     )
 }
 
-export default Landing;
+export default Dashboard;
