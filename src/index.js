@@ -4,8 +4,9 @@ import Login from "./pages/Login";
 import Regist from "./pages/Register";
 import Layout from "./pages/Layout";
 import NoPage from "./pages/NoPage";
-import Landing from "./pages/Landing";
-
+import Dashboard from "./pages/Dashboard";
+import 'bootstrap/dist/css/bootstrap.min.css';
+import './index.css'
 export default function App() {
   return (
     <BrowserRouter>
@@ -13,7 +14,7 @@ export default function App() {
         <Route path="/" element={<Layout />}>
           <Route index element={<Login />} />
           <Route path="regist" element={<Regist />} />
-          <Route path="landing" element={<Landing />} />
+          <Route path="dashboard" element={<Dashboard />} />
           <Route path="*" element={<NoPage />} />
         </Route>
       </Routes>
