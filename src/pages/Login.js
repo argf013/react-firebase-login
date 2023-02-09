@@ -94,11 +94,11 @@ const Login = () => {
 
     return (
         <>
-            <h2 className="text-center mt-4">Login Page</h2>
+            <h2 className="text-center mt-4" id="login">Login Page</h2>
             <form className="card mx-auto mt-4" style={{ width: '20em' }} onSubmit={handleSubmit}>
                 <div className="card-body text-center">
                     <input
-                        className="form-control mb-3"
+                        className="form-control mb-3 email"
                         type="email"
                         autoComplete="email"
                         placeholder="Email"
@@ -108,7 +108,7 @@ const Login = () => {
 
                     <div className="input-group mb-4">
                         <input
-                            className="form-control"
+                            className="form-control password"
                             type={showPassword ? "text" : "password"}
                             placeholder="Password"
                             autoComplete="current-password"
