@@ -29,3 +29,7 @@ To run the application in development mode, run the following command:
 To create a production version of the application, run the following command: 
 
 `npm run build`
+
+To run the end-to-end testing script, simply run the following command in your terminal:
+
+`npm run e2e`
